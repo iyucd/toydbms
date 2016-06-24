@@ -1,0 +1,97 @@
+Robert Gonzales 912431466
+Isaac Baron 	993085721
+
+1) Compile with make, run like this -> fp.out -o
+
+2) test_queries.sql contains sql commands to test functionality
+
+3) data folder included (contains tables, stats, keys, indexes)
+	a) Table13 is 200,000 row table
+
+**** Previous homework regrade requests ****
+
+ROB regrade requests:
+
+
+	-- HW4 --
+
+1) Implemented rewrite rules, please regrade part 3 of HW4.
+
+2) Implemented support for operators <, >, =, <>, and AND in WHERE clause, please regrade part 4 of HW4.
+
+3) Implemented respecting the output column header specification, please regrade part 5 of HW4.
+	-- HW6 --
+
+4) Implemented btree index (part 1 of HW6), usage if index selection (part 2 of HW6), and fleshing out the optimizer to use index selection (part 3 of HW6), please regrade part 1, 2 and 3 of HW6. (part 1 might already have a grade)
+
+
+
+
+ISAAC regrade requests:
+	
+	-- HW 3 --
+
+	(Part 3) Implemented fetch-rows
+	(Part 4) returns error messages
+
+	-- HW 4 -- ALL
+
+	(Part 1) Implemented all specified commands
+	(Part 2) Iterator concept
+	(Part 3) Rewrite rules
+	(Part 4) Support for operators < > <> = AND
+	(Part 5) Respect order of columns in output
+
+	-- HW 6 -- ALL
+
+	(Part 1) B-Tree
+	(Part 2) Index Selection
+	(Part 3) Optimizer with index selection
+
+
+
+
+**** Final Project, stuff we completed ****
+
+1) Implemented keeping basic stats for each table. Part i of final project.
+
+2) Implemented all joins with the optimizer picking the best join based on stats. Part ii of final project
+
+3) Can handle relations over 200000. Part iii of final project
+
+4) Implemented GROUP BY with COUNT and AVG group functions. Part iv of the final project.
+
+5) Implemented support for the IN operator. part v of final project
+
+
+
+
+
+**** Program Notes ****
+
+1) Each conditions in the WHERE clause must have parenthesis around it. EX: WHERE (col1 = 'Robert') AND (col2 <> 45) ;
+
+2) Joins only work with two tables in FROM clause. EX: From table1, table2
+If multiple tables are used in a SELECT FROM WHERE statement, the listed tables cannot have column names in common.
+
+3) Index join is set up to do an index join when the first table listed in FROM is a table that has a column indexed and the indexed column is on the left hand side of one of the conditions in 
+WHERE.
+
+4) Hash Join is used when join condition is present and one or both tables has >= 1000 rows.
+
+5) Nested Loop join is used if a join operation is being executed and neither of the previous conditions are met.
+
+6) Group by can only be used with one grouping column. 
+EX: "GROUP BY col1" is acceptable, but "GROUP BY col1, col2 is not"
+If AVG or COUNT is used, there cannot be other columns listed in SELECT clause.
+
+7) If IN is used as a condition, other conditions cannot be used in the same query.
+
+
+**** Possible extra credit opportunities ****
+
+1) Created a table of error messages. The file is called ERRORMESSAGES.
+
+2) Implemented cross product, works when multiple tables are listed in FROM (without commas) and the conditions are of the form <col name> = <value> ;
+
+
